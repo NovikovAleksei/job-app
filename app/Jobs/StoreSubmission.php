@@ -33,6 +33,8 @@ class StoreSubmission implements ShouldQueue
 
     public function failed(?Throwable $exception): void
     {
-        Log::info($exception->getMessage());
+        if ($exception) {
+            Log::info($exception->getMessage());
+        }
     }
 }

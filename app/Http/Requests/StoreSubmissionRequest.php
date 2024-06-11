@@ -39,6 +39,6 @@ class StoreSubmissionRequest extends FormRequest
             'status' => false,
             'message' => 'Invalid data',
             'data' => $validator->errors(),
-        ], 400));
+        ], 422));
     }
 }
