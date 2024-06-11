@@ -48,3 +48,18 @@ For run test, Please run
 ./vendor/bin/phpunit
 ```
 
+For test endpoint and job process, Please use Postman:
+
+Endpoint
+```
+http://localhost/api/submit
+```
+Body, POST
+```
+{
+  "name": "Jon Doe",
+  "email": "john.doe@example.com",
+  "message": "This is a test message."
+ }
+```
+
