@@ -41,6 +41,13 @@ For run queue:work, Please run
 ./vendor/bin/sail artisan queue:work
 ```
 
+For clean and code style, Please run 
+
+
+```
+./vendor/bin/pint
+```
+
 For run test, Please run 
 
 

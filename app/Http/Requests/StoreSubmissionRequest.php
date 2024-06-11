@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Contracts\Validation\Validator;
 
 class StoreSubmissionRequest extends FormRequest
 {
@@ -29,16 +29,16 @@ class StoreSubmissionRequest extends FormRequest
             'message' => [
                 'string',
                 'required',
-            ]
+            ],
         ];
     }
 
     public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
-            'status'   => false,
-            'message'   => 'Invalid data',
-            'data'      => $validator->errors()
-        ]));
+            'status' => false,
+            'message' => 'Invalid data',
+            'data' => $validator->errors(),
+        ], 400));
     }
 }

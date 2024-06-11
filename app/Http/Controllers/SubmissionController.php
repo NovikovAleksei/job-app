@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSubmissionRequest;
-use App\Jobs\StoreSubmission;
-use Illuminate\Http\RedirectResponse;
+use App\Services\SubmissionProcessor;
+use Illuminate\Http\JsonResponse;
 
 class SubmissionController extends Controller
 {
-    public function store(StoreSubmissionRequest $request): RedirectResponse
+    public function store(StoreSubmissionRequest $request, SubmissionProcessor $processor): JsonResponse
     {
-        StoreSubmission::dispatch($request->validated())
-            ->delay(now()->addSeconds(10));
+        $processor->dispatchEvent($request->validated());
 
-        return redirect('/submissions');
+        return response()->json([
+            'status' => 'success',
+        ]);
     }
 }

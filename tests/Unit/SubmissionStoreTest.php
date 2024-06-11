@@ -16,7 +16,7 @@ class SubmissionStoreTest extends TestCase
         $submission = new Submission([
             'name' => 'Jon Doe',
             'email' => 'john.doe@example.com',
-            'message' => 'This is a test message.'
+            'message' => 'This is a test message.',
         ]);
 
         $this->submission = $submission;
